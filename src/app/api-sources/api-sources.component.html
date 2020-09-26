@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <div class="col-12 col-lg-9">
+      <div class="list-group">
+        <button typr="button" class="list-group-item list-group-item-action">
+          <div class="row justify-content-md-center">
+            <div class="col-3 col-lg-3 text-dark font-weight-bold">Name</div>
+            <div class="col-3 col-lg-2 text-dark font-weight-bold">Category</div>
+            <div class="col-3 col-lg-2 text-dark font-weight-bold">Language</div>
+            <div class="col-3 col-lg-2 text-dark font-weight-bold">Country</div>
+          </div>
+        </button>
+        <button
+          type="button"
+          class="list-group-item list-group-item-action"
+          *ngFor="let source of sourcesList"
+        >
+          <div class="row justify-content-md-center">
+            <div class="col-3 col-lg-3 text-primary">{{source.name}}</div>
+            <div class="col-3 col-lg-2 text-secondary">{{source.category}}</div>
+            <div class="col-3 col-lg-2 text-secondary">{{source.language}}</div>
+            <div class="col-3 col-lg-2 text-secondary">{{source.country}}</div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
