@@ -9,7 +9,7 @@ export interface ArticleModel {
   author: string;
   content: string;
   description: string;
-  pulishedAt: string;
+  publishedAt: string;
   source: {
     id: string,
     name: string
