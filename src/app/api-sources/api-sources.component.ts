@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FetchService } from '../services/fetch.service';
-import { ApiSourcesModel, ApiSourceModel } from '../models/api-sources.model';
+import { ApiSourceModel } from '../models/api-sources.model';
 
 @Component({
   selector: 'app-api-sources',
@@ -14,11 +14,7 @@ export class ApiSourcesComponent implements OnInit {
   constructor(private fetchService: FetchService) { }
 
   ngOnInit(): void {
-    this.fetchService.getApiResponse('sources').subscribe((data: ApiSourcesModel) => {
-      if (data.status === 'ok') {
-        this.sourcesList = data.sources;
-      }
-    });
+    this.sourcesList = this.fetchService.getApiSources();
   }
 
 }

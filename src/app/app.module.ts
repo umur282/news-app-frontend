@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CollapseDirective } from './collapse.directive';
 import { TopHeadlinesComponent } from './top-headlines/top-headlines.component';
 import { EveryNewsComponent } from './every-news/every-news.component';
+import { SearchResultsComponent } from './every-news/search-results/search-results.component';
+import { SearchFormComponent } from './every-news/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { EveryNewsComponent } from './every-news/every-news.component';
     NavbarComponent,
     CollapseDirective,
     TopHeadlinesComponent,
-    EveryNewsComponent
+    EveryNewsComponent,
+    SearchResultsComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,

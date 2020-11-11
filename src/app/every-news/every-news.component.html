@@ -1,21 +1,2 @@
-<div class="container">
-  <div class="row justify-content-center" *ngFor="let article of articleList">
-    <div class="col-12 col-sm-11 col-md-9 col-lg-8">
-      <h4 class="mt-5">{{article.title}}</h4>
-      <img [src]="article.urlToImage" alt="article.url" class="img-fluid mb-2">
-      <br>
-      <h5
-        *ngIf="article.author !== article.source.name && article.author !== null; else elseBlock"
-        class="d-inline-block"
-      >
-        {{article.author + ", " + article.source.name}}
-      </h5>
-      <ng-template #elseBlock><h5 class="d-inline-block">{{article.source.name}}</h5></ng-template>
-      <h5 class="d-inline-block">, {{article.publishedAt | date:'short'}}</h5>
-      <p class="text-justify">{{article.description}}</p>
-      <p class="text-justify">{{article.content}}</p>
-      <a [href]="article.url" target="_blank">{{article.url}}</a>
-      <hr>
-    </div>
-  </div>
-</div>
+<app-search-form></app-search-form>
+<app-search-results></app-search-results>
