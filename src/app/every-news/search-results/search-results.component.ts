@@ -17,8 +17,8 @@ export class SearchResultsComponent implements OnInit {
     this.fetchService.getApiResponse('every-news?q=italy').subscribe((data: ArticlesModel) => {
       if (data.status === "ok") {
         this.articleList = data.articles;
-        console.log(data);
       }
+      console.log(this.articleList);
     });
   }
 

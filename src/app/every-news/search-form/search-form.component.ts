@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { ApiSourceModel } from 'src/app/models/api-sources.model';
 import { FetchService } from 'src/app/services/fetch.service';
@@ -14,7 +15,13 @@ export class SearchFormComponent implements OnInit {
   constructor(private fetchService: FetchService) { }
 
   ngOnInit(): void {
-    this.sourcesList = this.fetchService.getApiSources();
+    this.fetchService.getApiSources().then((apiSourceList: ApiSourceModel[]) => {
+      this.sourcesList = apiSourceList;
+    });
+  }
+
+  onSubmit(searchForm: NgForm) {
+    console.log(searchForm);
   }
 
 }

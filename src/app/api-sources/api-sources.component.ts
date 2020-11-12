@@ -14,7 +14,9 @@ export class ApiSourcesComponent implements OnInit {
   constructor(private fetchService: FetchService) { }
 
   ngOnInit(): void {
-    this.sourcesList = this.fetchService.getApiSources();
+    this.fetchService.getApiSources().then((apiSourceList: ApiSourceModel[]) => {
+      this.sourcesList = apiSourceList;
+    });
   }
 
 }
