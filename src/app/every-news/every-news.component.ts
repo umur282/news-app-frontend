@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { SearchDataModel } from '../models/search-data.model';
-
 @Component({
   selector: 'app-every-news',
   templateUrl: './every-news.component.html'
 })
 export class EveryNewsComponent {
 
-  searchDataSubject: Subject<SearchDataModel> = new Subject<SearchDataModel>();
+  searchUrlSubject: Subject<string> = new Subject<string>();
 
-  onEmittedSearchData(event: SearchDataModel) {
-    this.searchDataSubject.next(event);
+  onEmittedSearchUrl(event: string) {
+    this.searchUrlSubject.next(event);
   }
 
 }

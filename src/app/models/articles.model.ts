@@ -3,6 +3,8 @@ import { ApiResponseModel } from './api-response.model';
 export interface ArticlesModel extends ApiResponseModel {
   articles: ArticleModel[];
   totalResults: number;
+  code: string;
+  message: string;
 }
 
 export interface ArticleModel {

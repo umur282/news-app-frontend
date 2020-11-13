@@ -1,2 +1,2 @@
-<app-search-form (searchData)="onEmittedSearchData($event)"></app-search-form>
-<app-search-results [searchData]="searchDataSubject"></app-search-results>
+<app-search-form (searchEvent)="onEmittedSearchUrl($event)"></app-search-form>
+<app-search-results [searchUrl]="searchUrlSubject"></app-search-results>

@@ -13,7 +13,7 @@ import { SearchDataModel } from '../../models/search-data.model';
 export class SearchFormComponent implements OnInit {
 
   sourcesList: ApiSourceModel[];
-  @Output('searchData') searchDataEvent: EventEmitter<SearchDataModel> = new EventEmitter<SearchDataModel>();
+  @Output() searchEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private fetchService: FetchService) { }
 
@@ -24,8 +24,14 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit(searchForm: NgForm) {
-    const searchData = searchForm.value;
-    this.searchDataEvent.emit(searchData);
+    const searchData: SearchDataModel = new SearchDataModel(
+      searchForm.value.searchContent,
+      searchForm.value.searchTitle,
+      searchForm.value.newsSource,
+      searchForm.value.fromDate,
+      searchForm.value.toDate
+    );
+    this.searchEvent.emit(searchData.getSearchUrl());
   }
 
 }

@@ -3,7 +3,6 @@ import { Subject, Subscription } from 'rxjs';
 
 import { FetchService } from '../../services/fetch.service';
 import { ArticleModel, ArticlesModel } from '../../models/articles.model';
-import { SearchDataModel } from 'src/app/models/search-data.model';
 
 @Component({
   selector: 'app-search-results',
@@ -12,23 +11,23 @@ import { SearchDataModel } from 'src/app/models/search-data.model';
 export class SearchResultsComponent implements OnInit, OnDestroy {
 
   articleList: ArticleModel[];
-  @Input() searchData: Subject<SearchDataModel>;
+  @Input() searchUrl: Subject<string>;
   searchDataSubs: Subscription;
 
   constructor(private fetchService: FetchService) { }
 
   ngOnInit(): void {
-    this.searchDataSubs = this.searchData.subscribe((searchData) => {
-      let searchUrl: string = 'every-news'
-      if (searchData.searchContent === '') searchUrl += '?q=' + searchData.searchContent;
-
+    this.searchDataSubs = this.searchUrl.subscribe((searchUrl: string) => {
+      console.log(searchUrl);
       this.fetchService.getApiResponse(searchUrl)
       .subscribe((data: ArticlesModel) => {
-        if (data.status === "ok") {
+        console.log(data);
+        if (data.status === 'ok') {
           this.articleList = data.articles;
+        } else if (data.status === 'error') {
+          console.log(data.code + ': ' + data.message);
         }
       });
-      console.log(searchData);
     });
   }
 
